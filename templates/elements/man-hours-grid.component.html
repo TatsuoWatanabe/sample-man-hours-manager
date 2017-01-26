@@ -1,0 +1,47 @@
+<ngx-datatable
+  class="material"
+  [rows]="rows"
+  [columns]="columns"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="0"
+  [rowHeight]="40"
+  [scrollbarV]="false"
+  [scrollbarH]="scrollbarH"
+  [messages]="{emptyMessage: emptyMessage}"
+>
+
+  <ngx-datatable-column
+    name="Name"
+    [width]="nameColumnWidth"
+    [frozenLeft]="true"
+    [sortable]="false"
+  >
+  </ngx-datatable-column>
+
+  <ngx-datatable-column
+    *ngFor="let column of columns"
+    [resizeable]="false"
+    [sortable]="false"
+    [draggable]="false"
+    [width]="dataColumnWidth"
+    [canAutoResize]="false"
+  >
+    <template let-row="row" ngx-datatable-header-template>
+      <div class="center">{{column.label}}</div>
+    </template>
+    <template let-row="row" ngx-datatable-cell-template>
+      <div class="center" *ngFor="let cell of [row.cells[column.id]]">
+        <span *ngIf="!cell?.inputable">{{cell?.value | hoursFormat}}</span>
+        <input *ngIf="cell?.inputable"
+          type="number"
+          step="0.1"
+          min="0"
+          tabindex="{{cell?.tabindex}}"
+          value="{{cell?.value | hoursFormat}}"
+          (input)="cellInputHandler($event, column, row, cell)"
+        />
+      </div>
+    </template>
+  </ngx-datatable-column>
+</ngx-datatable>

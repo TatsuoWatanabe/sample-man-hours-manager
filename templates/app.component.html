@@ -1,0 +1,31 @@
+<template #navlinks>
+  <li routerLinkActive="active"><a routerLink="{{Consts.Paths.mstProject}}">{{Consts.Pages.mstProject}}</a></li>
+  <li routerLinkActive="active"><a routerLink="{{Consts.Paths.inputHours}}">{{Consts.Pages.inputHours}}</a></li>
+</template>
+
+<nav class="blue lighten-1">
+  <div class="nav-wrapper">
+    <a
+      materialize="sideNav"
+      [materializeParams]="[{
+        closeOnClick:true,
+        edge: 'right'
+      }]"
+      class="right button-collapse"
+      data-activates="mobile-demo"
+    >
+      <i class="material-icons">menu</i>
+    </a>
+    <span class="brand-logo center">{{Consts.Pages.navbarTitle}}</span>
+    <ul class="right hide-on-med-and-down">
+      <template [ngTemplateOutlet]="navlinks"></template>
+    </ul>
+    <ul class="right side-nav" id="mobile-demo">
+      <template [ngTemplateOutlet]="navlinks"></template>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

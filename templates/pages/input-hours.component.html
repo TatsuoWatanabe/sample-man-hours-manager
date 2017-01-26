@@ -1,0 +1,75 @@
+<h4 class="blue-text text-darken-4">{{Consts.Pages.inputHours}}</h4>
+
+<!-- Month Selector -->
+<div class="row">
+  <div class="col s12 m3">
+    <month-selector
+      [format]="Consts.Formats.displayYearMonth"
+      (monthChanged)="monthChanged()"
+    ></month-selector>
+  </div>
+</div><!-- /.row -->
+
+<!-- Main Grid -->
+<div class="row">
+  <man-hours-grid
+    class="col s12 m12"
+    [rows]="rows"
+    [columns]="columns"
+    [totalRowName]="totalRowName"
+    [scrollbarH]="true"
+    [emptyMessage]="Consts.Msgs.noProjectData"
+    (valueChanged)="calcTotalGrid()"
+  ></man-hours-grid>
+</div><!-- /.row -->
+
+<!-- Buttons -->
+<div class="row">
+  <div class="col s12 m2 right">
+    <button
+      (click)="openModal(confirmSaveModalActions)"
+      class="btn blue lighten-1 btn-slim waves-effect waves-light right"
+    >{{Consts.Labels.save}}</button>
+  </div>
+
+  <div class="col s12 m2 right">
+    <button
+      (click)="outputCsv()"
+      class="btn light-green darken-1 btn-slim waves-effect waves-light right"
+    >{{Consts.Labels.outputCsv}}</button>
+  </div>
+
+  <div class="col s12 m3 right">
+    <button
+      (click)="openModal(confirmDiscardModalActions)"
+      class="btn grey btn-slim waves-effect waves-light right"
+    >{{Consts.Labels.discard}}</button>
+  </div>
+</div><!-- /.row -->
+
+<!-- Total Grid -->
+<div class="row">
+    <man-hours-grid
+      class="col s12 m6"
+      [rows]="totalGridRows"
+      [columns]="totalGridColumns"
+      [dataColumnWidth]="100"
+      [emptyMessage]="Consts.Msgs.noProjectData"
+    ></man-hours-grid>
+</div><!-- /.row -->
+
+<!-- Modal Structure -->
+<ok-cancel-dialog
+  [message]="Consts.Msgs.confirmSave(monthSelector.selectValue)"
+  [classAttr]="'width40per'"
+  [materializeActions]="confirmSaveModalActions"
+  (onOk)="save()"
+></ok-cancel-dialog>
+
+<!-- Modal Structure -->
+<ok-cancel-dialog
+  [message]="Consts.Msgs.confirmDiscard"
+  [classAttr]="'width40per'"
+  [materializeActions]="confirmDiscardModalActions"
+  (onOk)="discard()"
+></ok-cancel-dialog>

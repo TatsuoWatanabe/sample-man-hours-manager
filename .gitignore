@@ -1,0 +1,8 @@
+.idea
+jspm_packages
+npm-debug.*
+link-checker-results.txt
+_test-output
+_temp
+.DS_store
+node_modules

@@ -1,0 +1,18 @@
+.btn-slim {
+  height: 25px;
+  line-height: 25px;
+}
+
+.btn {
+  text-transform: none;
+}
+
+.width40per {
+  width: 40%;
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+      width: 85%;
+  }
+}

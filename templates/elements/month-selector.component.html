@@ -1,0 +1,8 @@
+<select
+  materialize="material_select"
+  [materializeSelectOptions]="selectOptions"
+  [(ngModel)]="selectValue"
+  (ngModelChange)="onChange($event)"
+>
+  <option *ngFor="let option of selectOptions" [value]="option.value">{{option.name}}</option>
+</select>

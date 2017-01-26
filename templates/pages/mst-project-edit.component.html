@@ -1,0 +1,56 @@
+<div *ngIf="project">
+  <h4 class="blue-text text-darken-4">{{Consts.Pages.mstProject}} - {{ isNew ? Consts.Labels.new : Consts.Labels.edit }}</h4>
+
+  <div class="row" *ngIf="project.id">
+    <div class="input-field col s12 m12">
+      <label class="active" for="project-id">ID: {{project.id}}</label>
+    </div>
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="input-field col s12 m12">
+      <input [(ngModel)]="project.name" type="text" id="project-name" />
+      <label class="active" for="project-name">{{Consts.Labels.projectName}}:</label>
+    </div>
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col s12 m2 right">
+      <button
+        (click)="confirmSave(confirmSaveModalActions)"
+        class="btn blue lighten-1 btn-slim waves-effect waves-light right"
+      >{{Consts.Labels.save}}</button>
+    </div>
+    <div class="col s12 m2 right">
+      <button
+        routerLink="/mst-project"
+        class="btn grey btn-slim waves-effect waves-light right"
+      >{{Consts.Labels.back}}</button>
+    </div>
+  </div><!-- /.row -->
+
+  <div *ngIf="!isNew" class="row">
+    <div class="col s12 m2 right">
+      <button
+        (click)="openModal(confirmDeleteModalActions)"
+        class="btn red lighten-1 btn-slim waves-effect waves-light right"
+      >{{Consts.Labels.delete}}</button>
+    </div>
+  </div><!-- /.row -->
+
+  <!-- Modal Structure -->
+  <ok-cancel-dialog
+    [message]="Consts.Msgs.confirmSave(project.name)"
+    [classAttr]="'width40per'"
+    [materializeActions]="confirmSaveModalActions"
+    (onOk)="save()"
+  ></ok-cancel-dialog>
+
+  <!-- Modal Structure -->
+  <ok-cancel-dialog
+    [message]="Consts.Msgs.confirmDelete(project.name)"
+    [classAttr]="'width40per'"
+    [materializeActions]="confirmDeleteModalActions"
+    (onOk)="delete()"
+  ></ok-cancel-dialog>
+</div>

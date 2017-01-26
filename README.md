@@ -1,0 +1,2 @@
+# man-hours-manager
+

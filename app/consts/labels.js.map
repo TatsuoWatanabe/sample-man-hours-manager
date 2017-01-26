@@ -1,0 +1,1 @@
+{"version":3,"file":"labels.js","sourceRoot":"","sources":["../../src/app/consts/labels.ts"],"names":[],"mappings":";AAAa,QAAA,MAAM,GAAG;IACpB,GAAG,EAAE,KAAK;IACV,IAAI,EAAE,MAAM;IACZ,IAAI,EAAE,MAAM;IACZ,IAAI,EAAE,MAAM;IACZ,IAAI,EAAE,MAAM;IACZ,MAAM,EAAE,QAAQ;IAChB,OAAO,EAAE,SAAS;IAClB,SAAS,EAAE,YAAY;IACvB,WAAW,EAAE,cAAc;CAC5B,CAAC"}

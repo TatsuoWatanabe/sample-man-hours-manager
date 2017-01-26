@@ -1,0 +1,18 @@
+<h4 class="blue-text text-darken-4">{{Consts.Pages.mstProject}}</h4>
+
+<div class="row">
+  <a routerLink="{{Consts.Paths.edit}}"
+    class="btn blue btn-slim waves-effect waves-light right"
+  >{{Consts.Labels.new}}</a>
+</div><!--/.row -->
+
+<div class="collection">
+  <a *ngFor="let project of projects"
+    class="collection-item blue-text text-darken4"
+    (click)="gotoEdit(project);"
+  >{{project.name}}
+    <span class="badge">{{project.id}}</span> 
+  </a>
+</div><!--/.collection -->
+
+<div *ngIf="projects?.length === 0">{{Consts.Msgs.noData}}</div>

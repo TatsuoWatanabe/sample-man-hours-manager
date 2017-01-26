@@ -1,0 +1,17 @@
+<h3 class="blue-text text-darken-4">社員マスタ</h3>
+
+<div class="row">
+  <div class="col s12 m12">
+    <a
+      *ngFor="let hero of heroes; let i = index;"
+      [routerLink]="['/detail', hero.id]"
+      class="col-1-4"
+    >
+      <div class="card-panel blue lighten-5 waves-effect waves-light">
+        <h4>{{i + 1}}. {{hero.name}}</h4>
+      </div>
+    </a>
+  </div>
+</div>
+
+<hero-search></hero-search>

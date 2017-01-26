@@ -1,0 +1,8 @@
+@see http://blog.mitsuruog.info/2016/02/angular2-minimum-starter.html
+
+Heroku上でのdevDependenciesのインストール
+
+HerokuはDeployする前、package.jsonに書かれているdependenciesの内容をインストールしますが、通常はdevDependenciesをインストールしません。
+そのため、Heroku上のNPM_CONFIG_PRODUCTION設定を無効にする必要があります。
+
+heroku config:set NPM_CONFIG_PRODUCTION=false
